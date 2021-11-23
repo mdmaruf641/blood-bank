@@ -1,0 +1,17 @@
+.main-nav {
+  margin-bottom: 20px;
+}
+.nav-items {
+  font-size: 18px;
+  color: #333333 !important;
+  font-weight: 500;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.nav-items:hover {
+  color: #ef3d32 !important;
+}
