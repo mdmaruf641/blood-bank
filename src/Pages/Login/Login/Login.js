@@ -12,7 +12,6 @@ const Login = () => {
 
       <Container>
         <div className="form-container">
-          {" "}
           <h1 className="mb-4">Login</h1>
           <Form /* onSubmit={handleLoginSubmit} */>
             <Form.Control
