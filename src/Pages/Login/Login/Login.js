@@ -1,11 +1,24 @@
 import Button from "@restart/ui/esm/Button";
-import React from "react";
+import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Navigation from "../../Shared/Navigation/Navigation";
 import "./Login.css";
 
 const Login = () => {
+  const [loginData, setLoginData] = useState({});
+
+  const handleOnChange = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div>
       <Navigation></Navigation>
@@ -13,10 +26,10 @@ const Login = () => {
       <Container>
         <div className="form-container">
           <h1 className="mb-4">Login</h1>
-          <Form /* onSubmit={handleLoginSubmit} */>
+          <Form onSubmit={handleLoginSubmit}>
             <Form.Control
               name="email"
-              /* onChange={handleOnChange} */
+              onChange={handleOnChange}
               required
               type="email"
               placeholder="Your Email"
@@ -24,7 +37,7 @@ const Login = () => {
             <br />
             <Form.Control
               name="password"
-              /* onChange={handleOnChange} */
+              onChange={handleOnChange}
               required
               type="password"
               placeholder="Your Password"
