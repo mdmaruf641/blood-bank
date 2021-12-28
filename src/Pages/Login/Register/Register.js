@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { Button, Container, Form, Spinner } from "react-bootstrap";
+import { Alert, Button, Container, Form, Spinner } from "react-bootstrap";
 import Navigation from "../../Shared/Navigation/Navigation";
 import "./Register.css";
 
 import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/UseAuth";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
+  const history = useHistory();
 
-  const { registerUser, isLoading } = useAuth();
+  const { user, registerUser, isLoading, authError } = useAuth();
 
-  const handleOnChange = (e) => {
+  const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newLoginData = { ...loginData };
@@ -24,7 +26,7 @@ const Register = () => {
       alert("Your Password did not match");
       return;
     }
-    registerUser(loginData.email, loginData.password);
+    registerUser(loginData.email, loginData.password, loginData.name, history);
     e.preventDefault();
   };
   return (
@@ -37,17 +39,17 @@ const Register = () => {
 
           {!isLoading && (
             <Form onSubmit={handleLoginSubmit}>
-              {/* <Form.Control
-              name="name"
-              onChange={handleOnChange}
-              required
-              type="text"
-              placeholder="Your Name"
-            /> */}
+              <Form.Control
+                name="name"
+                onBlur={handleOnBlur}
+                required
+                type="text"
+                placeholder="Your Name"
+              />
               <br />
               <Form.Control
                 name="email"
-                onChange={handleOnChange}
+                onBlur={handleOnBlur}
                 required
                 type="email"
                 placeholder="Your Email"
@@ -55,7 +57,7 @@ const Register = () => {
               <br />
               <Form.Control
                 name="password"
-                onChange={handleOnChange}
+                onBlur={handleOnBlur}
                 required
                 type="password"
                 placeholder="Your Password"
@@ -63,7 +65,7 @@ const Register = () => {
               <br />
               <Form.Control
                 name="password2"
-                onChange={handleOnChange}
+                onBlur={handleOnBlur}
                 required
                 type="password"
                 placeholder="Confirm Password"
@@ -75,6 +77,16 @@ const Register = () => {
             </Form>
           )}
           {isLoading && <Spinner animation="border" variant="danger" />}
+          {user?.email && (
+            <Alert className="mt-2" variant="success">
+              User Created Successfully!
+            </Alert>
+          )}
+          {authError && (
+            <Alert className="mt-2" variant="danger">
+              {authError}
+            </Alert>
+          )}
           <NavLink className="my-3 d-block text-decoration-none" to="/login">
             Already Have an Account? Please Login
           </NavLink>
@@ -83,5 +95,5 @@ const Register = () => {
     </div>
   );
 };
-// 71/8
+// 7:00
 export default Register;

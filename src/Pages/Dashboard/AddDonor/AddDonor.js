@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../Hooks/UseAuth";
 import "./AddDonor.css";
 
 const AddDonor = () => {
   const { register, handleSubmit, reset } = useForm();
+  const { user } = useAuth();
   const onSubmit = (data) => {
     console.log(data);
     axios.post("http://localhost:5000/donors", data).then((res) => {
@@ -23,6 +25,8 @@ const AddDonor = () => {
           <input
             className="donorInput"
             placeholder="Donor Name"
+            defaultValue={user.displayName}
+            required
             type="text"
             {...register("Name")}
           />
@@ -30,6 +34,7 @@ const AddDonor = () => {
           <input
             className="donorInput"
             placeholder="Donor Blood Group"
+            required
             type="text"
             {...register("BloodGroup")}
           />
@@ -37,6 +42,7 @@ const AddDonor = () => {
           <input
             className="donorInput"
             placeholder="Donor Phone"
+            required
             type="text"
             {...register("Phone")}
           />
@@ -44,6 +50,7 @@ const AddDonor = () => {
           <input
             className="donorInput"
             placeholder="Last Donate Date"
+            required
             type="text"
             {...register("LastDonate")}
           />

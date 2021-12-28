@@ -29,11 +29,12 @@ const Navigation = () => {
                 <Nav.Link className="nav-items" as={HashLink} to="/dashboard">
                   Dashboard
                 </Nav.Link>
+                <Nav.Link className="nav-items">{user.displayName}</Nav.Link>
                 <Nav.Link
                   onClick={logout}
                   className="nav-items"
                   as={HashLink}
-                  to="/dashboard"
+                  to="/home"
                 >
                   {icon}
                 </Nav.Link>

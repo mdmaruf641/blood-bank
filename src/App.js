@@ -9,6 +9,7 @@ import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import AddDonor from "./Pages/Dashboard/AddDonor/AddDonor";
 import AuthProvider from "./Contexts/AuthProvider/AuthProvider";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -25,9 +26,9 @@ function App() {
             <Route path="/allDonors">
               <AllDonors></AllDonors>
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
             <Route path="/addDonor">
               <AddDonor></AddDonor>
             </Route>
