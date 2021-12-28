@@ -24,6 +24,9 @@ const Navigation = () => {
             <Nav.Link className="nav-items" as={HashLink} to="/allDonors">
               All Donors
             </Nav.Link>
+            <Nav.Link className="nav-items" as={HashLink} to="/addDonor">
+              Add Donor
+            </Nav.Link>
             {user?.email ? (
               <>
                 <Nav.Link className="nav-items" as={HashLink} to="/dashboard">
