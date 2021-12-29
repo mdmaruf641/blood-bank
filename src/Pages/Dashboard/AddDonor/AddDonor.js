@@ -13,15 +13,17 @@ const AddDonor = () => {
   const { user } = useAuth();
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5000/donors", data).then((res) => {
-      if (res.data.insertedId) {
-        swal({
-          title: "Donor Successfully Added!",
-          icon: "success",
-        });
-        reset();
-      }
-    });
+    axios
+      .post("https://intense-retreat-13874.herokuapp.com/donors", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          swal({
+            title: "Donor Successfully Added!",
+            icon: "success",
+          });
+          reset();
+        }
+      });
   };
   return (
     <div>

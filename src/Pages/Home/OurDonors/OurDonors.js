@@ -7,7 +7,7 @@ import "./OurDonors.css";
 const OurDonors = () => {
   const [donors, setDonors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/donors")
+    fetch("https://intense-retreat-13874.herokuapp.com/donors")
       .then((res) => res.json())
       .then((data) => setDonors(data));
   }, []);

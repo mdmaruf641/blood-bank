@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Nav, Row } from "react-bootstrap";
-import { HashLink } from "react-router-hash-link";
+import { Container, Row } from "react-bootstrap";
 import AllDonor from "../AllDonor/AllDonor";
 import Footer from "../Shared/Footer/Footer";
 import Navigation from "../Shared/Navigation/Navigation";
@@ -8,7 +7,7 @@ import Navigation from "../Shared/Navigation/Navigation";
 const AllDonors = () => {
   const [donors, setDonors] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/donors")
+    fetch("https://intense-retreat-13874.herokuapp.com/donors")
       .then((res) => res.json())
       .then((data) => setDonors(data));
   }, []);
