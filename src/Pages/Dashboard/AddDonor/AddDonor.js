@@ -6,6 +6,7 @@ import useAuth from "../../../Hooks/UseAuth";
 import Footer from "../../Shared/Footer/Footer";
 import Navigation from "../../Shared/Navigation/Navigation";
 import "./AddDonor.css";
+import swal from "sweetalert";
 
 const AddDonor = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -14,7 +15,10 @@ const AddDonor = () => {
     console.log(data);
     axios.post("http://localhost:5000/donors", data).then((res) => {
       if (res.data.insertedId) {
-        alert("added Successfully");
+        swal({
+          title: "Donor Successfully Added!",
+          icon: "success",
+        });
         reset();
       }
     });
