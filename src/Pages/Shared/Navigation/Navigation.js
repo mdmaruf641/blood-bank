@@ -34,6 +34,7 @@ const Navigation = () => {
                 </Nav.Link>
                 <Nav.Link className="nav-items">{user.displayName}</Nav.Link>
                 <Nav.Link
+                  title="Logout"
                   onClick={logout}
                   className="nav-items"
                   as={HashLink}

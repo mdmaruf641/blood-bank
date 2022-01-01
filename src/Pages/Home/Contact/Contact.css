@@ -1,0 +1,14 @@
+.input-container {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: -1px 1px 7px 0px #b1b1b1;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.contact-input {
+  width: 98%;
+}

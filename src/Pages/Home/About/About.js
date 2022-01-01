@@ -8,7 +8,7 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 const About = () => {
   const check = <FontAwesomeIcon icon={faCheckCircle} />;
   return (
-    <div>
+    <div className="my-5">
       <Container>
         <div className="my-4">
           <Row>
