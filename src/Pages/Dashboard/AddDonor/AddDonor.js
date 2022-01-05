@@ -22,6 +22,11 @@ const AddDonor = () => {
             icon: "success",
           });
           reset();
+        } else {
+          swal({
+            title: "Error! Donor not Added. Please try again.",
+            icon: "error",
+          });
         }
       });
   };

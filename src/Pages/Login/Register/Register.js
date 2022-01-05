@@ -19,6 +19,7 @@ const Register = () => {
     const newLoginData = { ...loginData };
     newLoginData[field] = value;
     setLoginData(newLoginData);
+    /* console.log(field, value); */
   };
 
   const handleLoginSubmit = (e) => {
