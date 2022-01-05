@@ -18,6 +18,7 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import useAuth from "../../../Hooks/UseAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import AdminRoute from "./../../Login/AdminRoute/AdminRoute";
 
 const drawerWidth = 200;
 
@@ -200,9 +201,9 @@ function Dashboard(props) {
             <Route path={`${path}/manageDonors`}>
               <ManageDonors></ManageDonors>
             </Route>
-            <Route path={`${path}/makeAdmin`}>
+            <AdminRoute path={`${path}/makeAdmin`}>
               <MakeAdmin></MakeAdmin>
-            </Route>
+            </AdminRoute>
           </Switch>
 
           {/* <Switch>
