@@ -16,6 +16,8 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
+  const [admin, setAdmin] = useState(false);
+
   const auth = getAuth();
 
   // for Registration
@@ -25,9 +27,12 @@ const useFirebase = () => {
       .then((userCredential) => {
         setAuthError("");
         const newUser = { email, displayName: name };
+
         setUser(newUser);
+
         // save user to the database
         saveUser(email, name);
+
         // send name to firebase after creation
         updateProfile(auth.currentUser, {
           displayName: name,
@@ -71,6 +76,12 @@ const useFirebase = () => {
     return unsubscribe;
   }, [auth]);
 
+  useEffect(() => {
+    fetch(`https://intense-retreat-13874.herokuapp.com/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
+
   // for log out
   const logout = () => {
     setIsLoading(true);
@@ -82,7 +93,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/users", {
+    fetch("https://intense-retreat-13874.herokuapp.com/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -95,6 +106,7 @@ const useFirebase = () => {
     user,
     isLoading,
     authError,
+    admin,
     registerUser,
     loginUser,
     logout,

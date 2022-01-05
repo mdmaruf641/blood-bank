@@ -15,12 +15,18 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Profile from "./../Profile/Profile";
 import ManageDonors from "../ManageDonors/ManageDonors";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import useAuth from "../../../Hooks/UseAuth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { admin, logout } = useAuth();
+
+  const icon = <FontAwesomeIcon icon={faSignOutAlt} />;
 
   let { path, url } = useRouteMatch();
 
@@ -52,54 +58,54 @@ function Dashboard(props) {
       >
         Profile
       </Nav.Link> */}
-      {/* {admin && ( */}
-      <>
-        <Nav.Link
-          className="menu-items mt-1 fs-5 text-white"
-          as={HashLink}
-          to={`${url}/manageDonors`}
-        >
-          Manage All Donors
-        </Nav.Link>
-        <Divider style={{ color: "#fff" }} />
-        <Nav.Link
-          className="menu-items mt-1 fs-5 text-white"
-          to={`${url}/makeAdmin`}
-          as={HashLink}
-        >
-          Make Admin
-        </Nav.Link>
-        <Divider style={{ color: "#fff" }} />
-        <Nav.Link
-          className="menu-items mt-1 fs-5 text-white"
-          as={HashLink}
-          to={`${url}/addProduct`}
-        >
-          Add Donor
-        </Nav.Link>
-      </>
-      {/*  )} */}
+      {admin && (
+        <>
+          <Nav.Link
+            className="menu-items mt-1 fs-5 text-white"
+            as={HashLink}
+            to={`${url}/manageDonors`}
+          >
+            Manage All Donors
+          </Nav.Link>
+          <Divider style={{ color: "#fff" }} />
+          <Nav.Link
+            className="menu-items mt-1 fs-5 text-white"
+            to={`${url}/makeAdmin`}
+            as={HashLink}
+          >
+            Make Admin
+          </Nav.Link>
+          <Divider style={{ color: "#fff" }} />
+          <Nav.Link
+            className="menu-items mt-1 fs-5 text-white"
+            as={HashLink}
+            to={`${url}/addProduct`}
+          >
+            Add Donor
+          </Nav.Link>
+        </>
+      )}
 
-      {/* {!admin && ( */}
-      <>
-        <Divider style={{ color: "#fff" }} />
-        <Nav.Link
-          className="menu-items mt-1 fs-5 text-white"
-          as={HashLink}
-          to={`${url}/review`}
-        >
-          Review
-        </Nav.Link>
-      </>
-      {/*  )} */}
+      {!admin && (
+        <>
+          <Divider style={{ color: "#fff" }} />
+          <Nav.Link
+            className="menu-items mt-1 fs-5 text-white"
+            as={HashLink}
+            to={`${url}/review`}
+          >
+            Review
+          </Nav.Link>
+        </>
+      )}
       <Divider style={{ color: "#fff" }} />
       <Nav.Link
         className="menu-items fs-5 text-white"
         as={HashLink}
         to="/"
-        /* onClick={logout} */
+        onClick={logout}
       >
-        {/* Log Out {signOut} */}
+        Log Out {icon}
       </Nav.Link>
     </div>
   );
