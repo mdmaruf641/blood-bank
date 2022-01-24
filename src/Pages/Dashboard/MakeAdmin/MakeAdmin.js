@@ -2,9 +2,11 @@ import { TextField } from "@mui/material";
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import swal from "sweetalert";
+import useAuth from "../../../Hooks/UseAuth";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
+  const { token } = useAuth();
 
   const handleOnBlur = (e) => {
     setEmail(e.target.value);
@@ -16,6 +18,7 @@ const MakeAdmin = () => {
     fetch("https://intense-retreat-13874.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
+        authorization: `Bearer ${token}`,
         "content-type": "application/json",
       },
       body: JSON.stringify(user),
@@ -35,6 +38,8 @@ const MakeAdmin = () => {
         }
       });
   };
+
+  // 73-8
   return (
     <div>
       <Container>

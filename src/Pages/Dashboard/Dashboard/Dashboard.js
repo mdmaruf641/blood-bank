@@ -19,6 +19,7 @@ import useAuth from "../../../Hooks/UseAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import AdminRoute from "./../../Login/AdminRoute/AdminRoute";
+import DashboardAddDonor from "../DashboardAddDonor/DashboardAddDonor";
 
 const drawerWidth = 200;
 
@@ -80,7 +81,7 @@ function Dashboard(props) {
           <Nav.Link
             className="menu-items mt-1 fs-5 text-white"
             as={HashLink}
-            to={`${url}/addProduct`}
+            to={`${url}/addDonor`}
           >
             Add Donor
           </Nav.Link>
@@ -198,11 +199,14 @@ function Dashboard(props) {
             <Route exact path={path}>
               <Profile></Profile>
             </Route>
-            <Route path={`${path}/manageDonors`}>
+            <AdminRoute path={`${path}/manageDonors`}>
               <ManageDonors></ManageDonors>
-            </Route>
+            </AdminRoute>
             <AdminRoute path={`${path}/makeAdmin`}>
               <MakeAdmin></MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path={`${path}/addDonor`}>
+              <DashboardAddDonor></DashboardAddDonor>
             </AdminRoute>
           </Switch>
 
