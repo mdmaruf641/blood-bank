@@ -6,7 +6,7 @@ import { TextField } from "@mui/material";
 
 const Contact = () => {
   return (
-    <div>
+    <div className="mt-5">
       <Container>
         <Row>
           <div className="col-lg-6 input-container">

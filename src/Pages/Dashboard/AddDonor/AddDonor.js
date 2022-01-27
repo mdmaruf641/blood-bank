@@ -36,8 +36,9 @@ const AddDonor = () => {
       <Container>
         <form className="addDonorForm" onSubmit={handleSubmit(onSubmit)}>
           <h2>Add Donor</h2>
+          <p className="m-0 text-start">Donor Name</p>
           <input
-            className="donorInput"
+            className="donorInput mt-0 mb-3"
             placeholder="Donor Name"
             defaultValue={user.displayName}
             required
@@ -45,24 +46,27 @@ const AddDonor = () => {
             {...register("Name")}
           />
           <br />
+          <p className="m-0 text-start">Donor Blood Group</p>
           <input
-            className="donorInput"
+            className="donorInput mt-0 mb-3"
             placeholder="Donor Blood Group"
             required
             type="text"
             {...register("BloodGroup")}
           />
           <br />
+          <p className="m-0 text-start">Donor Phone Number</p>
           <input
-            className="donorInput"
+            className="donorInput mt-0 mb-3"
             placeholder="Donor Phone"
             required
             type="text"
             {...register("Phone")}
           />
           <br />
+          <p className="m-0 text-start">Last Donation date</p>
           <input
-            className="donorInput"
+            className="donorInput mt-0 mb-3"
             placeholder="Last Donate Date"
             required
             type="date"

@@ -15,7 +15,7 @@ const OurDonors = () => {
     <div>
       <Container>
         <div className="section-head">
-          <h2>
+          <h2 className="text-uppercase fw-bold">
             OUR <span>DONORS</span>
           </h2>
         </div>

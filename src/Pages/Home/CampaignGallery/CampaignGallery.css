@@ -1,0 +1,25 @@
+.section-head h2 {
+  color: #333333;
+}
+.section-head p {
+  color: #484848;
+}
+
+.join-part {
+  margin-top: 80px;
+  background: #f3f3f3;
+  padding: 40px 20px;
+  border-radius: 7px;
+}
+.join-part h2 {
+  font-size: 35px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 15px;
+}
+.join-part p {
+  font-size: 20px;
+  color: #484848;
+  width: 75%;
+  margin: auto;
+}

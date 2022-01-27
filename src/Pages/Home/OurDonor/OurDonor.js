@@ -13,7 +13,6 @@ const OurDonor = ({ donor }) => {
         <h4>Call: {Phone}</h4>
       </a>
       <h5>Last Donate: {LastDonate}</h5>
-      <p></p>
     </div>
   );
 };
